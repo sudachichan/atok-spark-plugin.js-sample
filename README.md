@@ -5,7 +5,7 @@ node.js で動作する ATOK Spark プラグインのサンプルです。
 
 以下のコマンドでエラーが出なければ動作するはずです。
 ```
-$ git clone https://github.com/sudachichan/atok-spark-plugin.js-sample
+$ git clone https://github.com/sudachichan/atok-spark-plugin.js-sample.git
 $ cd atok-spark-plugin.js-sample
 $ npm install
 $ npm run test
