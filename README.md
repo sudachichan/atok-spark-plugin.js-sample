@@ -8,7 +8,7 @@ node.js で動作する ATOK Spark プラグインのサンプルです。
 ```
 $ git clone https://github.com/sudachichan/atokspark-jsplugin-sample.git
 $ cd atokspark-jsplugin-sample
-$ npm install
+$ npm update
 $ npm run test
 ```
 

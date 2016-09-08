@@ -1,4 +1,4 @@
-var Plugin = require('atok-spark-plugin.js');
+var Plugin = require('atokspark-jsplugin');
 
 var commands = [
     ['pluginjs:', 'node.jsサンプルです'],
