@@ -2,8 +2,15 @@ var fs = require('fs');
 var marked = require('marked');
 var Plugin = require('atokspark-jsplugin');
 
-// {正規表現: 関数} の連想配列を指定することで、簡単にプラグインを定義できます。
+// 簡易プラグイン記法のサンプルコードです。
 Plugin.byRules({
+    // async: true,
+    // を指定すると、非同期モードで動作します。
+    // 非同期モードでは、以下で指定する関数の第一引数として callback が追加され、
+    // return ではなく callback を呼び出すよう変わります。
+
+    // replaces: {正規表現: 関数} を指定すると、
+    // 正規表現にマッチしたトリガーを、戻り値の文字列に置換します。
     replaces: {
         'pluginjs:': function () {
             return 'node.jsサンプルです';
@@ -15,6 +22,8 @@ Plugin.byRules({
             return '正規表現を使う場合のサンプルです。「' + matches[1] + '」にマッチしました。'; 
         },
     },
+    // views: {正規表現: 関数} を指定すると、
+    // 正規表現にマッチしたトリガーで、戻り値のXHTMLを表示します。
     views: {
         'pluginjs:help:': function () {
             var README_md = fs.readFileSync(__dirname + '/README.md', 'utf8'); 
