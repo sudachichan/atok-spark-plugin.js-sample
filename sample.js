@@ -1,3 +1,5 @@
+var fs = require('fs');
+var marked = require('marked');
 var Plugin = require('atokspark-jsplugin');
 
 // {正規表現: 関数} の連想配列を指定することで、簡単にプラグインを定義できます。
@@ -15,7 +17,8 @@ Plugin.byRules({
     },
     views: {
         'pluginjs:help:': function () {
-            return '<div>hoge</div>';
+            var README_md = fs.readFileSync(__dirname + '/README.md', 'utf8'); 
+            return marked(README_md);
         },
     },
 });
