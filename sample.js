@@ -1,6 +1,6 @@
-var fs = require('fs');
-var marked = require('marked');
-var Plugin = require('atokspark-jsplugin');
+const fs = require('fs');
+const marked = require('marked');
+const Plugin = require('atokspark-jsplugin');
 
 // 簡易プラグイン記法のサンプルコードです。
 Plugin.byRules({
@@ -12,21 +12,21 @@ Plugin.byRules({
     // replaces: {正規表現: 関数} を指定すると、
     // 正規表現にマッチしたトリガーを、戻り値の文字列に置換します。
     replaces: {
-        'pluginjs:': function () {
+        'pluginjs:': () => {
             return 'node.jsサンプルです';
         },
-        'pluginjs2:': function () {
+        'pluginjs2:': () => {
             return '=============\n  ATOK Spark + node.js Plugin\n=============';
         },
-        'pluginjs3:(.*):': function (matches) {
+        'pluginjs3:(.*):': (matches) => {
             return '正規表現を使う場合のサンプルです。「' + matches[1] + '」にマッチしました。'; 
         },
     },
     // views: {正規表現: 関数} を指定すると、
     // 正規表現にマッチしたトリガーで、戻り値のXHTMLを表示します。
     views: {
-        'pluginjs:help:': function () {
-            var README_md = fs.readFileSync(__dirname + '/README.md', 'utf8'); 
+        'pluginjs:help:': () => {
+            const README_md = fs.readFileSync(__dirname + '/README.md', 'utf8'); 
             return marked(README_md);
         },
     },
