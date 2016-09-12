@@ -27,7 +27,8 @@ Plugin.byRules({
     views: {
         'pluginjs:help:': () => {
             const README_md = fs.readFileSync(`${__dirname}/README.md`, 'utf8'); 
-            return marked(README_md);
+            const html = marked(README_md);
+            return `<html xmlns="http://www.w3.org/1999/xhtml"><body>${html}</body></html>`;
         },
     },
 });
