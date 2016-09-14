@@ -3,7 +3,7 @@ const marked = require('marked');
 const Plugin = require('atokspark-jsplugin');
 
 // 簡易プラグイン記法のサンプルコードです。
-Plugin.byRules({
+const sample = Plugin.byRules({
     // async: true,
     // を指定すると、非同期モードで動作します。
     // 非同期モードでは、以下で指定する関数の第一引数として callback が追加され、
@@ -32,3 +32,8 @@ Plugin.byRules({
         },
     },
 });
+
+module.exports = sample;
+if (require.main === module) {
+    sample.run();
+}
